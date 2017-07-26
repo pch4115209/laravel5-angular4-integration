@@ -1,0 +1,10 @@
+<div class="container">
+    <h1 class="text-danger">Hello, {{ title }}  </h1>
+
+    <h1 class="text-info">Users</h1>
+    <ul>
+        <li *ngFor="let user of users; let i = index">
+            {{i+1}}: {{user.name}} <br />
+        </li>
+    </ul>
+</div>
