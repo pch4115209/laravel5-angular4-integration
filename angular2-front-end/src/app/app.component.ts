@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { DataService } from './services/data.service';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
     users: User[];
@@ -22,8 +24,6 @@ export class AppComponent {
         this.title += ' System';
     }
 }
-
-
 
 interface User{
     id: number,
