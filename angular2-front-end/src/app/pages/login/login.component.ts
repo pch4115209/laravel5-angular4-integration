@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, AbstractControl, Validators, FormBuilder } from '@angular/forms';
 import * as globalVars from '../../global.variables';
 
 @Component({
@@ -24,15 +24,15 @@ export class LoginComponent {
 
     this.email = this.form.controls['email'];
     this.password = this.form.controls['password'];
-
-
   }
 
   public onSubmit(values:Object):void {
     this.submitted = true;
+    console.log('fasdfas');
+
     if (this.form.valid) {
       // your code goes here
-      // console.log(values);
+      console.log(this.form.value);
     }
   }
 
