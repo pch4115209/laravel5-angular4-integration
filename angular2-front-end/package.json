@@ -25,6 +25,7 @@
     "@ngx-translate/http-loader": "^1.0.0",
     "amcharts3": "^3.21.2",
     "animate.css": "^3.5.2",
+    "ap-angular2-fullcalendar": "^1.3.1",
     "bootstrap": "^3.3.7",
     "chartist": "^0.11.0",
     "core-js": "^2.4.1",

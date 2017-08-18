@@ -1,1 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* To get the fix top nav to work, we need to add the extra padding to the body */
+body { padding-top: 70px; }

@@ -1,14 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from './services/data.service';
-import * as $ from 'jquery';
-
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
     users: User[];
     title: string;
 
@@ -17,7 +15,7 @@ export class AppComponent {
     }
 
     ngOnInit() {
-        this.dataService.getUsers().subscribe((users) => {
+       this.dataService.getUsers().subscribe((users) => {
             this.users = users;
         })
 
