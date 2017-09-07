@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import objectContaining = jasmine.objectContaining;
 
 @Injectable()
 export class AuthenticationService {

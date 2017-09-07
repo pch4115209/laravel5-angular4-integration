@@ -31,7 +31,7 @@ export class LoginComponent {
   }
 
 
-  public onSubmit(values:Object):void {
+  public onSubmit(values:Object) {
     this.submitted = true;
 
     if (this.form.valid) {
