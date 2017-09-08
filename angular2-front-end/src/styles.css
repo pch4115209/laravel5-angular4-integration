@@ -1,14 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-/* To get the fix top nav to work, we need to add the extra padding to the body */
-body { padding-top: 70px; }
 
 
+/****************************************************************************************************************
+
+
+                                       Global CSS
+
+
+*****************************************************************************************************************/
+body{
+    padding-top: 70px;
+}
+
+.vertical-align-super{
+    vertical-align: super !important;
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom{
+    z-index: 999 !important;
+}
+
+
+
+/*  Input form validation */
 .ng-valid[required], .ng-valid.required {
     border-left: 5px solid #42A948 !important;
 }
 
 .ng-touched.ng-invalid:not(form) {
     border-left: 5px solid #A94442 !important;
+}
+
+
+/****************************************************************************************************************
+
+
+                                        Custom CSS for Year Calendar
+
+
+*****************************************************************************************************************/
+.calendar .month-container {
+    height:235px !important;
 }

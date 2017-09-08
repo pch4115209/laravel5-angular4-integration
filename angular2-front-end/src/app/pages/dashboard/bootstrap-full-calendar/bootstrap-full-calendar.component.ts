@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import {ModalService} from "../../../services/modal.service";
 import { BootstrapYearCalendarDataSource } from '../../../../../node_modules/ngx-bootstrap-year-calendar/src/app/model/bootstrap-year-calendar';
+import {MdDialog} from "@angular/material";
+import { EventModalComponent } from '../event-modal/event-modal.component';
 
 @Component({
   selector: 'app-bootstrap-full-calendar',
   templateUrl: './bootstrap-full-calendar.component.html',
-  styleUrls: ['./bootstrap-full-calendar.component.scss']
+  styleUrls: ['./bootstrap-full-calendar.component.css']
 })
 export class BootstrapFullCalendarComponent implements OnInit {
     currentYear:number =  moment(new Date).year(); // Always display current year upon first loading
@@ -66,7 +68,7 @@ export class BootstrapFullCalendarComponent implements OnInit {
         style: 'background'
     };
 
-  constructor(private _modalService:ModalService) {}
+  constructor(private _modalService:ModalService, public dialog:MdDialog) {}
 
   ngOnInit() {
       this.eventInfo.id = 0;
@@ -80,11 +82,12 @@ export class BootstrapFullCalendarComponent implements OnInit {
 
   displayLeaveRequestModal(dayRangeObj){
     //Get the dates
-    let startDate:string = dayRangeObj.startDate.toLocaleDateString('en-GB');
-    let endDate:string = dayRangeObj.endDate.toLocaleDateString('en-GB');
+    let startDate:string = dayRangeObj.startDate;//toLocaleDateString('en-GB');
+    let endDate:string = dayRangeObj.endDate;//toLocaleDateString('en-GB');
+
     var event:Object = {
         id: '-1',
-        name: '',
+        name: 'New Request',
         holidayType: '', //addtional attribute
         description: '', // addtional attribute
         color: '',
@@ -92,7 +95,6 @@ export class BootstrapFullCalendarComponent implements OnInit {
         endDate: endDate
     };
 
-    this._modalService.updateData("event-modal", event);
-    this._modalService.open("event-modal");
+    this.dialog.open(EventModalComponent);
   }
 }

@@ -1,53 +1,21 @@
-
-
-
-<button md-icon-button [mdMenuTriggerFor]="menu">
-  <md-icon>more_vert</md-icon>
-</button>
-<md-menu #menu="mdMenu">
-  <button md-menu-item>
-    <md-icon>dialpad</md-icon>
-    <span>Redial</span>
-  </button>
-  <button md-menu-item disabled>
-    <md-icon>voicemail</md-icon>
-    <span>Check voicemail</span>
-  </button>
-  <button md-menu-item>
-    <md-icon>notifications_off</md-icon>
-    <span>Disable alerts</span>
-  </button>
-</md-menu>
-
-
-<md-toolbar color="primary">
-
-  <span>MyCompany</span>
-  <span class="example-spacer"></span>
-  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button>
-
-</md-toolbar>
-
-<md-menu #appMenu="mdMenu">
-  <button md-menu-item> Settings </button>
-  <button md-menu-item> Help </button>
-</md-menu>
-
 <nav class="navbar navbar-fixed-top navbar-default">
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-      </button> <a href="#" class="navbar-brand">LOGO</a>
+      </button> <a href="/" class="navbar-brand">LOGO</a>
     </div>
+    <span class="navbar-btn request-button-fixed">
+        <button md-raised-button color="accent" (click)="openLeaveRequestDialog()"><md-icon>alarm</md-icon> Request a Leave</button>
+    </span>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li> <a href="#"><i class="fa fa-home"></i></a>
+        <li> <a href="#"><md-icon>home</md-icon></a>
         </li>
-        <li class="active"> <a href="#"><i class="fa fa-calendar"></i></a>
+        <li class="active"> <a href="#"><md-icon>date_range</md-icon></a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lightbulb-o"></i> <span class="badge alert-success">10</span></a>
+          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><md-icon>lightbulb_outline</md-icon><span class="badge alert-success vertical-align-super">10</span></a>
 
           <ul class="dropdown-menu">
             <li> <a><span class="label label-success">New</span> ACCT-200 Document Added </a>
@@ -78,50 +46,11 @@
     </div>
   </div>
 </nav>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div id="overview" class="col-sm-4 col-md-3 animated bounceInUp">
-      <h2>Your Calendars</h2>
-
-      <h5><a data-toggle="collapse" href="#collapseTwo">
-        <i class="fa fa-cal fa-fw"></i>Calendars you Follow
-      </a></h5>
-
-      <div id="collapseTwo" class="collapse in">
-        <div class="list-group">
-          <div class="list-group-item">
-            <a href="#course_1" data-toggle="collapse" class="text-success" style="display: inline-block;width:90%;"><strong>Forerunner Computer Systems</strong></a>
-            <span class="badge pull-right">2</span>
-            <div id="course_1" class="collapse">
-              John's calendar
-            </div>
-          </div>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="">
-            <a href="#course_2" data-toggle="collapse" class="text-info"><strong>Digital Media</strong></a>
-          </label><span class="badge pull-right">1</span>
-        </div>
-        <div id="course_2" class="collapse">
-          <hr style="margin:10px auto;">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="">
-             Peter Pan's Calendar
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- End Column -->
-    <div id="calendar" class="col-sm-8 col-md-9">
-      <div class="panel-body">
+    <div id="calendar" class="col-sm-12 col-md-12 col-lg-12">
         <app-bootstrap-full-calendar></app-bootstrap-full-calendar>
-      </div>
-      <app-event-modal></app-event-modal>
-      <hr>
-      <app-full-calendar></app-full-calendar>
     </div>
   </div>
 </div>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
+import {MdDialog} from "@angular/material";
+import { EventModalComponent } from './event-modal/event-modal.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +10,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class DashboardComponent {
 
-  constructor( private _service:AuthenticationService ) {
+  constructor( private _service:AuthenticationService, public  dialog: MdDialog) {
     this._service.checkCredentials();
   }
 
@@ -16,4 +18,7 @@ export class DashboardComponent {
     this._service.logout();
   }
 
+  openLeaveRequestDialog(){
+    this.dialog.open(EventModalComponent);
+  }
 }

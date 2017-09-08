@@ -4,7 +4,7 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-event-modal',
   templateUrl: './event-modal.component.html',
-  styleUrls: ['./event-modal.component.css']
+  styleUrls: ['./event-modal.component.css'],
 })
 export class EventModalComponent implements OnInit {
   modalTitle:string;
@@ -12,14 +12,14 @@ export class EventModalComponent implements OnInit {
 
   currentDate:Date = new Date();
 
-  event:Object = {
+  event = {
     eventId: -1,
-    eventName: '',
+    eventName: 'Annual Leave',
     eventHolidayType: '',
-    eventDescription:'',
+    eventDescription:'Going to China',
     eventColor: '',
-    eventStartDate: this.currentDate.toLocaleDateString('en-GB'), // Always display current year upon first loading,
-    eventEndDate:  this.currentDate.toLocaleDateString('en-GB') // Always display current year upon first loading,
+    eventStartDate: this.currentDate,//.toLocaleDateString('en-GB'), // Always display current year upon first loading,
+    eventEndDate:  this.currentDate//toLocaleDateString('en-GB') // Always display current year upon first loading,
   };
 
   constructor() {
@@ -29,7 +29,5 @@ export class EventModalComponent implements OnInit {
   ngOnInit() {
     this.modalTitle = 'Request a Leave';
   }
-
-
 
 }

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 /*  Angular Material */
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -38,6 +38,9 @@ import { DatepickerComponent } from './form-components/datepicker/datepicker.com
     EventModalComponent,
     DatepickerComponent
   ],
+  entryComponents:[
+    EventModalComponent
+  ],
   imports: [
     BrowserModule,
     HttpModule,
@@ -51,6 +54,7 @@ import { DatepickerComponent } from './form-components/datepicker/datepicker.com
     DataService,
     AuthenticationService,
     ModalService,
+    { provide: LOCALE_ID, useValue: 'en-GB' } // format date to DD/MM/YYYY globally
   ],
   bootstrap: [AppComponent]
 })
