@@ -2,26 +2,39 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ModalService {
+  modals:any[] = [];
 
   constructor() { }
 
-  open(modalID:string){
-    (<any>$("#" + modalID)).modal('show');
+  add(key:string, modalRef:object){
+
+    for( let i = 0; i < this.modals.length; i++ ){ // remove the all elements with the same keys
+      if( key in this.modals[i] )
+        this.modals.splice(i,1);
+    }
+
+    let modalObj = {};
+    modalObj[key] = modalRef;
+    return this.modals.push(modalObj);
   }
 
-  hide(modalID:string){
-    (<any>$("#" + modalID)).modal('hide');
+  get( key:string ){
+    for( let i = 0; i < this.modals.length; i++ ){
+      if( key in this.modals[i] ){
+        return this.modals[i][key];
+      }
+    }
+
+    return false;
   }
 
-  /**
-   * Fill in the data into the modal with the given ID
-   *
-   * @param modalID
-   * @param data
-   */
-  updateData(modalID:string, data:any) {
-    console.log(data);
-    (<any>$("#" + modalID)).find('input[name=eventStartDate]').val(data.startDate);
-    (<any>$("#" + modalID)).find('input[name=eventEndDate]').val(data.endDate);
+  remove(key:string){
+    for( let i = 0; i < this.modals.length; i++ ){
+      if( key in this.modals[i]  )
+        this.modals.splice(i,1); // remove a particular element
+    }
+
+    return false;
   }
+
 }

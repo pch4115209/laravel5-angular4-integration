@@ -13,7 +13,9 @@ import {
     MdSelectModule,
     MdDialogModule,
     MdDatepickerModule,
-    MdNativeDateModule
+    MdNativeDateModule,
+    MdTabsModule,
+    MdCheckboxModule
 } from '@angular/material';
 
 @NgModule({
@@ -27,7 +29,9 @@ import {
         MdSelectModule,
         MdDialogModule,
         MdDatepickerModule,
-        MdNativeDateModule
+        MdNativeDateModule,
+        MdTabsModule,
+        MdCheckboxModule
     ],
     exports: [
         MdButtonModule,
@@ -39,7 +43,9 @@ import {
         MdSelectModule,
         MdDialogModule,
         MdDatepickerModule,
-        MdNativeDateModule
+        MdNativeDateModule,
+        MdTabsModule,
+        MdCheckboxModule
     ]
 })
 

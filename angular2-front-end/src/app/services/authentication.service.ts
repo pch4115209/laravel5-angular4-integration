@@ -8,13 +8,19 @@ export class AuthenticationService {
 
   }
 
+  register(){
+
+  }
+
   logout() {
     localStorage.removeItem("user");
     this._router.navigate(['/login']);
   }
 
   login(user){
-    console.log('Anthentication...');
+    //TODO: Authentication
+
+
     if ( user.email === 'admin' && user.password === 'admin123' ) {
       localStorage.setItem("user", user);
       this._router.navigate(['/dashboard']);

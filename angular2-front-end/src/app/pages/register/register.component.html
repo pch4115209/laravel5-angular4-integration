@@ -39,22 +39,49 @@
                 </div>
               </form>-->
               <form id="register-form" [formGroup]="form" (ngSubmit)="onSubmit(form.value)" role="form" style="display: block;">
-                <div class="form-group">
-                  <label for="email">Username</label>
-                  <input type="text" name="email" [formControl]="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" name="password" [formControl]="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <label for="confirm_password">Confirm password</label>
-                  <input type="password" name="confirm_password" [formControl]="confirm_password" id="confirm_password" tabindex="2" class="form-control" placeholder="Confirm Password">
-                </div>
+                <md-form-field class="col-md-6 col-sm-12 col-xs-12">
+                  <input mdInput name="firstname" [formControl]="firstname" id="firstname" placeholder="First Name *">
+                  <md-error *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">
+                    <div [hidden]="!firstname.errors.required">
+                      First Name field is required!
+                    </div>
+                    <div [hidden]="!firstname.errors.minlength">
+                      First Name must be at least 3 characters long!
+                    </div>
+                  </md-error>
+                </md-form-field>
+                <md-form-field class="col-md-6 col-sm-12 col-xs-12">
+                  <input mdInput name="lastname" [formControl]="lastname" id="lastname" placeholder="Last Name *">
+                  <md-error *ngIf="lastname.errors && (lastname.dirty || lastname.touched)">
+                    <div [hidden]="!lastname.errors.required">
+                      Last Name field is required!
+                    </div>
+                    <div [hidden]="!lastname.errors.minlength">
+                      Last Name must be at least 3 characters long!
+                    </div>
+                  </md-error>
+                </md-form-field>
+                <md-form-field class="col-xs-12">
+                  <input mdInput name="email" [formControl]="email" id="email" placeholder="Email *">
+                  <md-error *ngIf="email.errors && (email.dirty || email.touched)">
+                    <div [hidden]="!email.errors.required">
+                      Email field is required!
+                    </div>
+                    <div [hidden]="(!email.errors.required && !email.errors.validateEmail)">
+                      Email format is invalid!
+                    </div>
+                  </md-error>
+                </md-form-field>
+                <md-form-field class="col-xs-12">
+                  <input mdInput type="password" name="password" [formControl]="password" id="password" placeholder="Password *">
+                </md-form-field>
+                <md-form-field class="col-xs-12">
+                  <input mdInput type="password" name="confirm_password" [formControl]="confirm_password" id="confirm_password" placeholder="Confirm Password *">
+                </md-form-field>
                 <div class="form-group">
                   <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
-                      <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                      <button type="submit" md-raised-button color="primary" class="col-xs-12">Register Now</button>
                     </div>
                   </div>
                 </div>

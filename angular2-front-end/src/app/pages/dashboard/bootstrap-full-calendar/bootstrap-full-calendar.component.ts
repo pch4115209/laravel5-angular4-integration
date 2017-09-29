@@ -55,7 +55,8 @@ export class BootstrapFullCalendarComponent implements OnInit {
                 endDate: new Date(this.currentYear, 3, 19)
             }*/
         ],
-        disabledDays: [],
+        disabledDays: [
+        ],
         displayWeekNumber: false,
         enableContextMenu: true,
         enableRangeSelection: true,
@@ -65,10 +66,10 @@ export class BootstrapFullCalendarComponent implements OnInit {
         mouseOnDayPopUp: true,
         roundRangeLimits: false,
         startYear: this.currentYear,
-        style: 'background'
+        style: 'border'
     };
 
-  constructor(private _modalService:ModalService, public dialog:MdDialog) {}
+  constructor(public _modalService:ModalService, public dialog:MdDialog) {}
 
   ngOnInit() {
       this.eventInfo.id = 0;
@@ -82,19 +83,30 @@ export class BootstrapFullCalendarComponent implements OnInit {
 
   displayLeaveRequestModal(dayRangeObj){
     //Get the dates
-    let startDate:string = dayRangeObj.startDate;//toLocaleDateString('en-GB');
-    let endDate:string = dayRangeObj.endDate;//toLocaleDateString('en-GB');
-
-    var event:Object = {
+    let startDate:Date = dayRangeObj.startDate;//.format('DD-MM-YYYY');
+      console.log('correct format ' + startDate);
+    let endDate:Date = dayRangeObj.endDate;//.format('DD-MM-YYYY');
+        console.log(dayRangeObj);
+    let event = {
         id: '-1',
         name: 'New Request',
-        holidayType: '', //addtional attribute
-        description: '', // addtional attribute
-        color: '',
+        holidayType: 'New Holiday Type', //addtional attribute
+        description: 'New Description', // addtional attribute
+        color: '#DE35EF',
         startDate: startDate,
         endDate: endDate
     };
 
-    this.dialog.open(EventModalComponent);
+    let dialogDef = this.dialog.open(EventModalComponent);
+    let instance = dialogDef.componentInstance;
+    instance.eventName = event.name;
+    instance.eventHolidayType = event.holidayType;
+    instance.eventDescription = event.description;
+    instance.eventColor = event.color;
+    instance.eventStartDate = event.startDate;
+    instance.eventEndDate = event.endDate;
+
+    this._modalService.add('newLeaveModal', dialogDef); // add the dialog ref in an array
   }
+
 }

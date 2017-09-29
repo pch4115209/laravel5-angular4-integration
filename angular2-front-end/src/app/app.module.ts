@@ -54,7 +54,7 @@ import { DatepickerComponent } from './form-components/datepicker/datepicker.com
     DataService,
     AuthenticationService,
     ModalService,
-    { provide: LOCALE_ID, useValue: 'en-GB' } // format date to DD/MM/YYYY globally
+    { provide: LOCALE_ID, useValue: 'en-AU' } // format date to DD/MM/YYYY globally
   ],
   bootstrap: [AppComponent]
 })

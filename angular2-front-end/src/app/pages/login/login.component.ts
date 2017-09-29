@@ -27,7 +27,6 @@ export class LoginComponent {
 
     this.email = this.form.controls['email'];
     this.password = this.form.controls['password'];
-
   }
 
 

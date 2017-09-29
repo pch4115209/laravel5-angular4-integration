@@ -3,20 +3,20 @@
 <md-dialog-content class="accent-color">
   <form #eventForm="ngForm">
     <md-form-field class="col-md-12">
-      <input mdInput id="event_name" name="eventName" placeholder="Name" [(ngModel)]="event.eventName">
+      <input mdInput id="event_name" name="eventName" placeholder="Name" [(ngModel)]="eventName" required>
     </md-form-field>
     <md-form-field class="col-md-12">
-      <input mdInput id="event_description" name="eventDescription" placeholder="Description" [(ngModel)]="event.eventDescription">
+      <input mdInput id="event_description" name="eventDescription" placeholder="Description (Optional)" [(ngModel)]="eventDescription">
     </md-form-field>
     <md-form-field class="col-md-6">
-      <input mdInput [mdDatepicker]="startingDate" name="eventStartDate" placeholder="Starting" [(ngModel)]="event.eventStartDate">
+      <input mdInput [mdDatepicker]="startingDate" name="eventStartDate" placeholder="Starting" [(ngModel)]="eventStartDate" required>
       <md-datepicker-toggle mdSuffix [for]="startingDate"></md-datepicker-toggle>
-      <md-datepicker #startingDate></md-datepicker>
+      <md-datepicker #startingDate [startAt]="eventStartDate"></md-datepicker>
     </md-form-field>
     <md-form-field class="col-md-6">
-      <input mdInput [mdDatepicker]="endingDate" placeholder="Ending" name="eventEndDate" [(ngModel)]="event.eventEndDate">
+      <input mdInput [mdDatepicker]="endingDate" placeholder="Ending" name="eventEndDate" [(ngModel)]="eventEndDate" required>
       <md-datepicker-toggle mdSuffix [for]="endingDate"></md-datepicker-toggle>
-      <md-datepicker #endingDate></md-datepicker>
+      <md-datepicker #endingDate [startAt]="eventEndDate"></md-datepicker>
     </md-form-field>
   </form>
 </md-dialog-content>
@@ -24,5 +24,5 @@
 
 <md-dialog-actions>
   <button md-raised-button color="primary" md-dialog-close>Cancel</button>
-  <button md-raised-button>Save</button>
+  <button md-raised-button (click)="addEvent()">Save</button>
 </md-dialog-actions>
